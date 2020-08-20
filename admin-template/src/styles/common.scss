@@ -1,0 +1,27 @@
+// 共用样式
+
+div{
+  box-sizing: border-box;
+}
+
+.flex{
+  display: flex;
+}
+.space-a{
+  justify-content: space-around;
+}
+.space-b{
+  justify-content: space-between;
+}
+
+.space-e{
+  justify-content: flex-end;
+}
+
+.align-c{
+  align-items: center;
+}
+
+.align-e{
+  align-items: flex-end;;
+}

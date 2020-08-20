@@ -1,0 +1,19 @@
+// 页面动画样式
+
+// 页面切换动画
+/* fade-transform */
+.fade-transform-leave-active,
+.fade-transform-enter-active {
+  transition: all .3s;
+}
+
+.fade-transform-enter {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.fade-transform-leave-to {
+  display: none;
+  opacity: 0;
+  transform: translateX(30px);
+}
