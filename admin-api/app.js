@@ -33,3 +33,15 @@ app.get('/get_sync_routes', function (req, res) {
         })
     })
 })
+app.post('/upload', function (req, res) {
+    fs.readFile('./syncRoutes.json', 'utf-8', (error, responseData) => {
+        if (error) return console.log(error.message);
+        res.json({
+            code: 1,
+            data: {
+                ...JSON.parse(responseData)
+            },
+            msg:"请求成功"
+        })
+    })
+})
