@@ -23,7 +23,7 @@ const store = new Vuex.Store({
           user: val.user,
           permission: val.permission,
           app: val.app
-        };
+        }; 
       }
     })
   ]

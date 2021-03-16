@@ -7,9 +7,7 @@ import { addRouter } from '@/utils/addRouter'
 router.onReady(async () => {
   if (store.getters.permission_routes && store.getters.permission_routes.length > 0) {
 
-    let addRoutes = JSON.parse(JSON.stringify(store.getters.async_routers))
-
-    let asyncRoutes = addRouter(addRoutes)
+    let asyncRoutes = addRouter(store.getters.async_routers)
 
     await store.dispatch('permission/generateRoutes', asyncRoutes)
 
@@ -22,12 +20,11 @@ router.onReady(async () => {
 // 路由导航钩子
 router.beforeEach(async (to, from, next) => {
   // 设置网页标题
-  if (to.meta && to.meta.title) {
+  if (to.meta && to.meta.title && to.path !== '/login') {
     document.title = to.meta.title
   }
   
   const hasToken = store.state.user.token || ''
-  console.log('hasToken',hasToken);
   if (hasToken) {
     const hasRouter = store.getters.permission_routes && store.getters.permission_routes.length > 0
     if (to.path === '/login') {

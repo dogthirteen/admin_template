@@ -1,29 +1,41 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import Vue from 'vue';
+import Router from 'vue-router';
 
-import Layout from '@/layout/index'
+import Layout from '@/layout/index';
 
-Vue.use(Router)
+Vue.use(Router);
 
-export const constRoutes = [{
+export const constRoutes = [
+  {
     path: '/',
     component: Layout,
     redirect: '/index',
     isClick: true,
-    children: [{
-      path: 'index',
-      name: 'index',
-      component: () => import('@/views/index/index'),
-      meta: {
-        title: '首页',
-        icon: 'index'
-      }
-    }]
+    children: [
+      {
+        path: 'index',
+        name: 'index',
+        component: () => import('@/views/index/index'),
+        meta: {
+          title: '首页',
+          icon: 'index',
+        },
+      },
+      {
+        path: 'todo-list',
+        name: 'todo-list',
+        component: () => import('@/views/todoList/index'),
+        meta: {
+          title: 'todo-list',
+          icon: 'index',
+        },
+      },
+    ],
   },
   {
     path: '/404',
     component: () => import('@/views/404'),
-    hidden: true
+    hidden: true,
   },
   {
     path: '/login',
@@ -32,33 +44,25 @@ export const constRoutes = [{
     meta: {
       title: '登录',
     },
-    component: () => import('@/views/login/index')
+    component: () => import('@/views/login/index'),
   },
-]
+];
 
+const createRouter = () =>
+  new Router({
+    // mode: 'history', // require service support
+    scrollBehavior: () => ({
+      y: 0,
+    }),
+    routes: constRoutes,
+  });
 
-const createRouter = () => new Router({
-  // mode: 'history', // require service support
-  scrollBehavior: () => ({
-    y: 0
-  }),
-  routes: constRoutes
-})
-
-const router = createRouter()
-
-router.$addRoutes = (params) => {
-  router.matcher = new Router({ // 重置路由规则
-    routes: constantRouterMap
-  }).matcher
-  router.addRoutes(params) // 添加路由
-}
-
+const router = createRouter();
 
 // 通过新建一个全新的 Router，然后将新的 Router.matcher 赋给当前页面的管理 Router，以达到更新路由配置的目的。
 export function resetRouter() {
-  const newRouter = createRouter()
-  router.matcher = newRouter.matcher // reset router
+  const newRouter = createRouter();
+  router.matcher = newRouter.matcher; // reset router
 }
 
-export default router
+export default router;
