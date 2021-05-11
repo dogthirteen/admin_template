@@ -2,10 +2,10 @@
   <div class="wscn-http404-container">
     <div class="wscn-http404">
       <div class="pic-404">
-        <img class="pic-404__parent" src="@/assets/404_images/404.png" alt="404">
-        <img class="pic-404__child left" src="@/assets/404_images/404_cloud.png" alt="404">
-        <img class="pic-404__child mid" src="@/assets/404_images/404_cloud.png" alt="404">
-        <img class="pic-404__child right" src="@/assets/404_images/404_cloud.png" alt="404">
+        <img class="pic-404__parent" src="@/assets/404_images/404.png" alt="404" />
+        <img class="pic-404__child left" src="@/assets/404_images/404_cloud.png" alt="404" />
+        <img class="pic-404__child mid" src="@/assets/404_images/404_cloud.png" alt="404" />
+        <img class="pic-404__child right" src="@/assets/404_images/404_cloud.png" alt="404" />
       </div>
       <div class="bullshit">
         <div class="bullshit__oops">哎呀，出错啦!</div>
@@ -18,20 +18,19 @@
 </template>
 
 <script>
-
 export default {
   name: 'Page404',
   computed: {
     message() {
-      return '网站管理员说您不能进入这个页面…'
-    }
-  }
-}
+      return '网站管理员说您不能进入这个页面…';
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-.wscn-http404-container{
-  transform: translate(-50%,-50%);
+.wscn-http404-container {
+  transform: translate(-50%, -50%);
   position: absolute;
   top: 40%;
   left: 50%;
