@@ -2,7 +2,7 @@
   <div class="silder">
     <el-menu :default-active="activeIndex" class="el-menu-vertical-demo" :default-openeds="openedsArr" :unique-opened="true" router :collapse="isCollapse" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
       <template v-for="(item,index) in permission_routes">
-        <el-submenu v-if="item.children && !item.isClick" :index="index + ''">
+        <el-submenu v-if="item.children && !item.isClick" :key="index" :index="index + ''">
           <template slot="title">
             <svg-icon class="icon" :iconClass="item.meta.icon"></svg-icon>
             <span>{{item.meta.title}}</span>

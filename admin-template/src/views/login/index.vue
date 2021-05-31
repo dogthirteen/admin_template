@@ -25,7 +25,7 @@
 
 <script>
 import { Login, getSyncRoutes } from '@/api/user'
-import { setToken } from '@/utils/auth'
+// import { setToken } from '@/utils/auth'
 export default {
   data() {
     return {
@@ -34,7 +34,7 @@ export default {
     }
   },
   methods: {
-    check: function (event) {
+    check: function () {
       //获取值
       var name = this.name;
       var password = this.password;
@@ -57,7 +57,7 @@ export default {
         
         this.$store.dispatch('permission/getSyncRoutes', result.data.asyncRoutes)
 
-        let url = '/'
+        let url = '/index'
 
         if (this.$route.query && this.$route.query.redirect) {
           url = this.$route.query.redirect

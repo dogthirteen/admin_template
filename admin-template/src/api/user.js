@@ -1,6 +1,6 @@
 import javaHttp from '@/utils/javaHttp'
 import rsaEncrypt from '@/utils/encryptRsa'
-import md5Encrypt from '@/utils/encryptMd5'
+// import md5Encrypt from '@/utils/encryptMd5'
 import qs from 'qs'
 
 

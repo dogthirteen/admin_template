@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-03-22 08:36:44
+ * @LastEditTime: 2021-05-31 16:37:35
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \admin_template\admin-template\src\permission.js
+ */
 import router from '@/router'
 import { Message } from 'element-ui'
 import store from '@/store'
@@ -26,11 +34,14 @@ router.beforeEach(async (to, from, next) => {
   
   const hasToken = store.state.user.token || ''
   if (hasToken) {
+    console.log('hasToken',hasToken);
     const hasRouter = store.getters.permission_routes && store.getters.permission_routes.length > 0
     if (to.path === '/login') {
+      console.log(1);
       Message.info('您已登录,如需切换用户请退出重新登录')
       next('/index')
     } else if (hasRouter) {
+      console.log(2);
       next()
     } else {
       try {

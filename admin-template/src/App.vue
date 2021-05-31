@@ -1,3 +1,4 @@
+
 <template>
   <div id="app">
     <transition name="fade-transform" mode="out-in">
@@ -7,7 +8,7 @@
 </template>
 <script>
 export default {
-  name: 'App',
+  name: 'App'
 };
 </script>
 <style lang="scss">

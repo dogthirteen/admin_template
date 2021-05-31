@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-03-22 08:36:44
+ * @LastEditTime: 2021-05-31 16:33:42
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \admin_template\admin-template\babel.config.js
+ */
 const prodPlugin = [];
 
 if (process.env.NODE_ENV === 'production') {

@@ -1,5 +1,4 @@
 export default {
-  inject: ['app'],
   data() {
     return {
       name: 'isMiXin',
@@ -7,7 +6,6 @@ export default {
   },
   mounted() {
     this.handlelog();
-    console.log(this.app.name);
   },
   methods: {
     handlelog() {

@@ -15,32 +15,32 @@ function hex_md5(a) {
   return rstr2hex(rstr_md5(str2rstr_utf8(a)))
 }
 
-function hex_hmac_md5(a, b) {
-  return rstr2hex(rstr_hmac_md5(str2rstr_utf8(a), str2rstr_utf8(b)))
-}
+// function hex_hmac_md5(a, b) {
+//   return rstr2hex(rstr_hmac_md5(str2rstr_utf8(a), str2rstr_utf8(b)))
+// }
 
-function md5_vm_test() {
-  return hex_md5("abc").toLowerCase() == "900150983cd24fb0d6963f7d28e17f72"
-}
+// function md5_vm_test() {
+//   return hex_md5("abc").toLowerCase() == "900150983cd24fb0d6963f7d28e17f72"
+// }
 
 function rstr_md5(a) {
   return binl2rstr(binl_md5(rstr2binl(a), a.length * 8))
 }
 
-function rstr_hmac_md5(c, f) {
-  var e = rstr2binl(c);
-  if (e.length > 16) {
-    e = binl_md5(e, c.length * 8)
-  }
-  var a = Array(16),
-    d = Array(16);
-  for (var b = 0; b < 16; b++) {
-    a[b] = e[b] ^ 909522486;
-    d[b] = e[b] ^ 1549556828
-  }
-  var g = binl_md5(a.concat(rstr2binl(f)), 512 + f.length * 8);
-  return binl2rstr(binl_md5(d.concat(g), 512 + 128))
-}
+// function rstr_hmac_md5(c, f) {
+//   var e = rstr2binl(c);
+//   if (e.length > 16) {
+//     e = binl_md5(e, c.length * 8)
+//   }
+//   var a = Array(16),
+//     d = Array(16);
+//   for (var b = 0; b < 16; b++) {
+//     a[b] = e[b] ^ 909522486;
+//     d[b] = e[b] ^ 1549556828
+//   }
+//   var g = binl_md5(a.concat(rstr2binl(f)), 512 + f.length * 8);
+//   return binl2rstr(binl_md5(d.concat(g), 512 + 128))
+// }
 
 function rstr2hex(c) {
   try {
@@ -219,4 +219,4 @@ function safe_add(a, d) {
 
 function bit_rol(a, b) {
   return (a << b) | (a >>> (32 - b))
-};
+}

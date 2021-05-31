@@ -28,13 +28,6 @@ Vue.config.devtools = isDebug_mode;
 
 Vue.config.productionTip = isDebug_mode;
 
-//生产环境 禁用重写console.log
-console.log('Env:%o,:%o', process.env.NODE_ENV) // production：生产环境  development：开发环境
-if (process.env.NODE_ENV === 'production') {
-  console = console || {};
-  console.log = function fn() {};
-}
-
 new Vue({
   router,
   store,
